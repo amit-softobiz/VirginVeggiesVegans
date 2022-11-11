@@ -6,3 +6,63 @@ marrow – pumpkin, cucumber and zucchini.
 root – potato, sweet potato and yam.
 edible plant stem – celery and asparagus.
 allium – onion, garlic and shallot.
+
+
+
+VVV Account and customer
+account_id	bank	account_no		Acount_balance	created_date
+_id		AXIS	966931635613		500000/-		11/11/2022		
+_id		HDFC	456654456134		5000/-			11/11/2022	
+
+Payment_mode_customer
+ReceiptId		paidTo		              paidFrom		cartID		
+ 5645645646		966931635613		456654456134		999		
+
+CART                                after i will virtual function then i will use session
+cartId		ProductId	quantity	subtotal              total
+999		601		 5		1000		----
+
+admin_data
+_id		name		joiningdate		url			
+1		amit		11/11/2022		api/admin/create	
+2		avesh		10/11/2022		api/admin/create
+
+admin_add_item into inventory add work complete
+_id    item_category	vegitem_id	No-in stock	          url		         
+45     category_id	itemId		500 + avail	        admin/:id/inventory/create       
+46     category_id	itemid		1000kg	+ a	        api/admin/:id/inventory/create
+
+customer
+_id		name		age		balance		url
+11		avinash		22		50000/-	                	api/user/:id
+12		samir		26		5600/-			api/user/:id
+
+inventoryItem/category
+_id		category		url
+101		leafy green 		api/category/:id
+102		cruciferous		api/category/:id
+103		edible plant stem 	api/category/:id
+104		allium		                api/category/:id
+105		marrow		api/category/:id
+106		root			api/category/:id
+
+Veg-item
+_id		veg_name		price/kg	
+201		lettuce			200
+202		spinach			200
+203		silverbeet
+204		cabbage
+205		cauliflower
+206		Brussels sprouts 
+207		broccoli
+208		pumpkin
+209		cucumber
+210		zucchini
+211		potato
+212		sweet potato
+213		yam
+214		celery 
+215		asparagus
+216		onion
+217		garlic
+218		shallot
