@@ -1,27 +1,24 @@
 const mongoose = require("mongoose");
-const schema = mongoose.Schema;
+const Schema = mongoose.Schema;
 
 
-const inventorySchema = new schema({
+const inventorySchema = new Schema({
     itemName:{
         type:String
     },
     description:{
         type:String,
-        minLength:8,
-        maxLength:50,
         required:true,
     },
-    Category:{ type: schema.Types.ObjectId, ref: 'Category' },
+    Category:{ type: Schema.Types.ObjectId, ref: 'Category', require:true },
+    price:{
+        type:Number,
+        require:true
+    },
     noInStock:{
         type:Number,
         min:0,
         max:1000
-    },
-    status:{
-        type:String,
-        require:true,
-        enum:["Available", "out of stock", "unavailable"]
     },
     createdAt:{
         type:Date,
@@ -33,5 +30,9 @@ const inventorySchema = new schema({
         default:()=>Date.now(),
     }
 })
+
+let amit = inventorySchema.virtual("url").get(function () {
+    return `/admin/product/${this._id}`;
+  });
 
 module.exports = mongoose.model("Inventory", inventorySchema);
