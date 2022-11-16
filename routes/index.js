@@ -5,5 +5,8 @@ var router = express.Router();
 router.get('/', function(req, res, next) {
   res.render('index', { title: 'Virgin Veggies Vegans (vvv)' });
 });
+router.get('/form', function(req, res, next) {
+  res.render('categoryForm');
+});
 
 module.exports = router;

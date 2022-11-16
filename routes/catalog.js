@@ -3,6 +3,8 @@ const express              = require("express")
       inventoryController  = require("../controllers/inventoryController");
 
 const router = express.Router();
+router.get("/categoryForm");
+router.get("/getParticularInventory/:id",categoryController.categoryGetbyid);
 
 router.post("/createCategory", categoryController.categoryCreate)
       .put("/updateCategory/:id", categoryController.categoryupdate)
@@ -14,6 +16,8 @@ router.post("/createCategory", categoryController.categoryCreate)
       .delete("/deleteInventoryy/:id", inventoryController.inventoryDeleteById)
       .get("/getInventory", inventoryController.inventoryGet)
       .get("/getInventory/:id", inventoryController.inventoryGetById);
+
+     
 
 
 module.exports = router;
