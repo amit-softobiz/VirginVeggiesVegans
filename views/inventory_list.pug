@@ -1,5 +1,17 @@
 extends layout
-
 block content
 
-h1 inventory list page
+  ul
+    each valInventory in inventoryget
+      table(style='width:100%', border='2')
+        tr
+          th itemName
+          th description
+          th price
+          th noInStock
+        tr
+          td 
+           a(href=valInventory.url) #{valInventory.itemName}
+          td #{valInventory.description}
+          td #{valInventory.price}
+          td #{valInventory.noInStock}

@@ -1,13 +1,19 @@
-const express            = require("express");
-const categoryController = require("../controllers/categoryController");
-const inventoryController = require("../controllers/inventoryController")
+const express              = require("express")
+      categoryController   = require("../controllers/categoryController")
+      inventoryController  = require("../controllers/inventoryController");
 
-const router             = express.Router();
-router.post("/createInventory", inventoryController.inventoryCreate);
-router.post("/createCategory", categoryController.categoryCreate);
+const router = express.Router();
 
-router.get("/getCategory", categoryController.categoryGet);
-router.get("/getInventory", inventoryController.inventoryGet);
+router.post("/createCategory", categoryController.categoryCreate)
+      .put("/updateCategory/:id", categoryController.categoryupdate)
+      .delete("/deleteCategory/:id", categoryController.categorydelete)
+      .get("/getCategory", categoryController.categoryGet)
+
+      .post("/createInventoryy/:id", inventoryController.inventoryCreate)
+      .put("/updateInventoryy/:id", inventoryController.inventoryUpdateById)
+      .delete("/deleteInventoryy/:id", inventoryController.inventoryDeleteById)
+      .get("/getInventory", inventoryController.inventoryGet)
+      .get("/getInventory/:id", inventoryController.inventoryGetById);
 
 
 module.exports = router;

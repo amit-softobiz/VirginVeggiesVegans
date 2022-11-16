@@ -32,7 +32,7 @@ const inventorySchema = new Schema({
 })
 
 let amit = inventorySchema.virtual("url").get(function () {
-    return `/admin/product/${this._id}`;
+    return `/catalog/getInventory/${this._id}`;
   });
 
 module.exports = mongoose.model("Inventory", inventorySchema);
