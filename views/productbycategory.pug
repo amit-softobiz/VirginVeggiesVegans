@@ -1,0 +1,18 @@
+extends layout
+block content
+  ul
+    each valproduct_get in product_get
+      h1 
+      table(style='width:100%', border='2')
+       tr
+          th item name
+          th description
+          th price
+          th noInStock
+       tr
+          td #{valproduct_get.itemName}
+          td #{valproduct_get.description}
+          td #{valproduct_get.price}
+          td  #{valproduct_get.noInStock}
+     
+       

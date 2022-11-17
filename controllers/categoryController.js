@@ -5,7 +5,7 @@ const Category    = require("../models/categoryServices")
 exports.categoryCreate = async (req, res) => {
   try {
     const category_create = await Category.create({ name: `${req.body.categoryName}`, description: `${req.body.categoryDescription}` });
-    res.status(200).render('categoryForm');
+    res.status(200).render('categoryForm',{category_create});
     // res.status(200).send(category_create);
   } catch (e) {
     res.status(404).send(e.message);
@@ -23,9 +23,10 @@ exports.categoryGet = async (req, res) => {
 //////////////////////////////////////////////////////////
 exports.categoryGetbyid = async (req, res) => {
   try {
-    const product_get = await Inventory.where({"_id":req.params.id});
-    res.send(product_get);
-    // res.status(200).render("productbycategory", { product_get: product_get })
+    let id = mongoose.Types.ObjectId(req.params.id.trim());
+    const product_get = await Inventory.find({"Category":id});
+    // res.send(product_get);
+    res.status(200).render("productbycategory", { product_get: product_get })
   } catch (e) {
     res.status(404).send(e.message);
   }
